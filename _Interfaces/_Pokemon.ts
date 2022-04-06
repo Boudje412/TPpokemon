@@ -7,8 +7,8 @@ export interface Pokemon {
     _captif:boolean;
     _horsJeu:boolean;
 //methode pokemon
-attaquer():void;
-subirAttaque():void;
-soigner():void;
-renommer():void;
+attaquer(newPokemon: Pokemon):void
+subirAttaque(degats: number):void
+soigner():void
+renommer():void
 }

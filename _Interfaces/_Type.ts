@@ -1,8 +1,9 @@
+import {Pokemon} from "./_Pokemon"
 //declaration de l'interface type
 export interface Type {
     _degats: number;
 //methode de l'interface type
-    calculerDegatsContreFeu(_degats: number): number;
-    calculerDegatsContreEau(_degats: number): number;
-    calculerDegatsContrePlante(_degats: number): number;
+    calculerDegatsContreFeu(cible: Pokemon): number;
+    calculerDegatsContreEau(cible: Pokemon): number;
+    calculerDegatsContrePlante(cible: Pokemon): number;
 }
