@@ -10,5 +10,5 @@ export interface Pokemon {
 attaquer(newPokemon: Pokemon):void
 subirAttaque(degats: number):void
 soigner():void
-renommer():void
+renommer(nom: string):void
 }

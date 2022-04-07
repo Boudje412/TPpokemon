@@ -2,7 +2,7 @@ import {Pokemon} from "../_Interfaces/_Pokemon"
 import {TypePlante} from "./_TypePlante"
 export class Bulbizarre extends TypePlante implements Pokemon
 {
-    //parameters
+    //parametres
     _nom!:string;
     _pv: number;
     _pvMax:number;
@@ -15,6 +15,11 @@ export class Bulbizarre extends TypePlante implements Pokemon
     {
         super(degats);
         this._pvMax = pvMax;
+        this._nom='Bulbizarre';
+        this._pv = pvMax;
+        this._type = 'Plante';
+        this._captif=false;
+        this._horsJeu = false;
     }
     calculerDegat(cible:Pokemon):number
     {
@@ -37,6 +42,10 @@ export class Bulbizarre extends TypePlante implements Pokemon
     subirAttaque(degats:number):void{
         this._pv=this._pv-degats
     }
-    soigner():void{}
-    renommer():void{}
+    soigner():void{
+        this._pv=this._pvMax;
+    }
+    renommer(nom:string):void{
+        this._nom=nom;
+    }
 }

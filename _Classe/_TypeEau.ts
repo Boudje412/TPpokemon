@@ -1,19 +1,24 @@
 import {Type} from '../_Interfaces/_Type';
+import { Pokemon } from '../_Interfaces/_Pokemon';
 export abstract class TypeEau implements Type{
     _degats: number;
-    calculerDegatsContreFeu(_degats: number): number
+
+    constructor (degats: number) {
+        this._degats = degats;
+    }
+    calculerDegatsContreFeu(cible:Pokemon): number
     {
-        let degats=_degats*2;
+        let degats=this._degats*2;
         return degats;
     }
-    calculerDegatsContreEau(_degats: number): number
+    calculerDegatsContreEau(cible:Pokemon): number
     {
-        let degats=_degats*0.5;
+        let degats=this._degats*0.5;
         return degats;
     }
-    calculerDegatsContrePlante(_degats: number): number
+    calculerDegatsContrePlante(cible:Pokemon): number
     {
-        let degats=_degats*0.5;
+        let degats=this._degats*0.5;
         return degats;
     }
 }
