@@ -4,14 +4,17 @@ export class Dresseur {
     //parametres
     private _nom:string;
     public _pokeballs: Pokeball[]=[];
+
     //constructeur
     constructor(nom:string) {
         this._nom = nom;
     }
+
     //getter
     get nbPokeballs():number {
      return this._pokeballs.length;
     }
+
     //setter
     ajouterPokeballs(nombre:number):void {
         while(this.nbPokeballs<nombre && this.nbPokeballs<6)
@@ -20,6 +23,7 @@ export class Dresseur {
         }
     }
 
+    //check si une pokeball specifiée est vide
     isEmptyPokeball(index: number):boolean {
         if (this._pokeballs[index].contient._nom) {
             return false;
@@ -27,45 +31,57 @@ export class Dresseur {
             return true;
         }
     }
-//attention si toute les balles sont pleines A REVOIR ABSOLUMENT.
+
+    //donne l'index de la premiere pokeball vide
     checkAllPokeballsEmpty(): number {
         let index = 0
-        // this._pokeballs.forEach(pokeball => {
-        //     this.isEmptyPokeball(index)
-        //     index ++
-        // })
-        // 
-        while (this.isEmptyPokeball(index)=false)
+        while (!this.isEmptyPokeball(index) && index<7)
         {
             index ++
         }
-        return index -1
+        if(this.isEmptyPokeball(index))
+        {
+            return index 
+        }
+        else {return null}
     }
 
-    // isPokeballEmpty():boolean
-    // {
-    //     let empty:boolean = null;
-    //     this._pokeballs.forEach((pokeball)=>{
-            
-    //         if (pokeball.contient._nom)
-    //         {
-    //             empty= false;
-    //         }
-    //         else
-    //         {
-    //             empty= true;
-    //         }
-    //     })
-    //     return empty
-    // }
-     //PAS TERMINER DU TOUT A FAIRE!!!!
     capturer(cible:Pokemon):void 
     {
-        if(this._pokeballs.length>0)
+        if (this.checkAllPokeballsEmpty() != null)
         {
-            
+            console.log('vous avez capturer '+cible._nom+' dans la pokeball n°'+this.checkAllPokeballsEmpty())
+            this._pokeballs[this.checkAllPokeballsEmpty()].affecterPokemon(cible);
         }
-        affecterPokemon(cible);
+        else
+        {
+            console.log('vous n\'avez pas de pokeballs')
+        }
     }
+    //affiche les pokemons dans les pokeballs
+    getPokemons(): void
+    {
+        let pokeliste=[];
+        let index=0;
+        this._pokeballs.forEach(pokeball => 
+        {
+            if(!this.isEmptyPokeball(index))
+            {
+                pokeliste.push(pokeball);
+            }
+            index++
+        })
+        if(pokeliste.length ===0)
+        {
+            console.log("vous n'avez pas de pokemons")
+        }
+        else
+        {
+            console.log("vos pokemons sont'")
+            pokeliste.forEach(pokeball =>{
+                console.log(pokeball._nom)
+            })
+        }
+    };
 }
 
