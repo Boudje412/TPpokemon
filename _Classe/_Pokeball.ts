@@ -13,7 +13,7 @@ export class Pokeball
     //setter
     affecterPokemon(cible:Pokemon): void
     {
-        this._contient =cible;
+        this._contient=cible;
     }
     get contient(): Pokemon
     {

@@ -6,9 +6,10 @@ export interface Pokemon {
     _type:string;
     _captif:boolean;
     _horsJeu:boolean;
+
 //methode pokemon
-attaquer(newPokemon: Pokemon):void
-subirAttaque(degats: number):void
+attaquer(newPokemon: Pokemon):number
+subirAttaque(degats: number):number
 soigner():void
 renommer(nom: string):void
 }

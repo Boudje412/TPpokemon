@@ -14,12 +14,16 @@ export class Dresseur {
     get nbPokeballs():number {
      return this._pokeballs.length;
     }
+    pokeballs(): Pokeball[]
+    {
+        return this._pokeballs;
+    }
 
     //setter
     ajouterPokeballs(nombre:number):void {
         while(this.nbPokeballs<nombre && this.nbPokeballs<6)
         {
-            this._pokeballs.push()
+            this._pokeballs.push(new Pokeball())
         }
     }
 

@@ -21,6 +21,20 @@ export class Salameche extends TypeFeu implements Pokemon
         this._captif=false;
         this._horsJeu = false;
     }
+    //getter
+    nom(): string
+    {
+        return this._nom;
+    }
+    pvMax(): number
+    {
+        return this._pvMax;
+    }
+    type(): string
+    {
+        return this._type;
+    }
+
     calculerDegat(cible:Pokemon):number
     {
         if(cible._type==="Feu")
@@ -36,11 +50,14 @@ export class Salameche extends TypeFeu implements Pokemon
             return this.calculerDegatsContrePlante(cible)
         }
     }
-    attaquer(cible:Pokemon):void{
-        let pvrestant=cible.subirAttaque(this.calculerDegat(cible));
+    attaquer(cible:Pokemon):number {
+        let pvrestant: number
+        pvrestant=cible.subirAttaque(this.calculerDegat(cible));
+        return pvrestant
     }
-    subirAttaque(degats:number):void{
+    subirAttaque(degats:number):number {
         this._pv=this._pv-degats
+        return this._pv;
     }
     soigner():void{
         this._pv=this._pvMax;
